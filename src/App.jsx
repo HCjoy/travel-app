@@ -30,13 +30,13 @@ const App = () => {
       color: 'from-blue-500 to-teal-400',
       icon: <Plane className="w-5 h-5" />,
       stay: '蘇州石湖智選酒店',
-      address: '蘇州吳中區長橋街道長蠡路67號美成坊39幢3-9層',
-      meals: '午餐: 桌菜 ¥600 / 晚餐: 自理',
+      address: '蘇州, 吳中區, 長橋街道 長蠡路 67 號美成坊 39 幢 3-9 層',
+      meals: '午餐 (桌菜 ¥600) / 晚餐: 自理',
       activities: [
-        { time: '08:45', item: '桃園機場出發', desc: '搭乘 CI501 航班前往上海' },
-        { time: '10:50', item: '抵達上海浦東', desc: '辦理入境手續後享用午餐' },
-        { time: '下午', item: '前往蘇州', desc: '搭乘旅遊巴士前往蘇州' },
-        { time: '傍晚', item: '周莊古鎮', desc: '遊覽江南六大古鎮之一，體驗「小橋流水人家」' },
+        { time: '08:45', item: '桃園機場出發', desc: '搭乘 CI501 航班' },
+        { time: '10:50', item: '抵達上海浦東', desc: '抵達後 ~ 先吃飯再往蘇州前去 ~' },
+        { time: '下午', item: '前往蘇州', desc: '搭乘旅遊巴士，前往蘇州遊玩江南六大古鎮之一' },
+        { time: '傍晚', item: '周莊古鎮', desc: '體驗「小橋流水人家」之美' },
       ]
     },
     {
@@ -47,13 +47,13 @@ const App = () => {
       color: 'from-teal-500 to-green-400',
       icon: <Camera className="w-5 h-5" />,
       stay: '蘇州石湖智選酒店',
-      address: '蘇州吳中區長橋街道長蠡路67號美成坊39幢3-9層',
+      address: '蘇州, 吳中區, 長橋街道 長蠡路 67 號美成坊 39 幢 3-9 層',
       meals: '含早餐 / 午餐 / 晚餐',
       activities: [
-        { time: '上午', item: '拙政園', desc: '中國四大園林之一，感受精緻園林設計' },
-        { time: '上午', item: '虎丘', desc: '吳中第一名勝，探訪東方比薩斜塔' },
-        { time: '下午', item: '寒山寺', desc: '體會「姑蘇城外寒山寺，夜半鐘聲到客船」的意境' },
-        { time: '傍晚', item: '七里山塘街', desc: '逛逛千年古街，品嚐蘇州在地美食' },
+        { time: '上午', item: '拙政園', desc: '中國四大園林之一' },
+        { time: '上午', item: '虎丘', desc: '吳中第一名勝' },
+        { time: '下午', item: '寒山寺', desc: '體會千年古剎意境' },
+        { time: '傍晚', item: '逛七里山塘街', desc: '品嚐蘇州美食' },
       ]
     },
     {
@@ -63,13 +63,13 @@ const App = () => {
       title: '水鄉古鎮雙響',
       color: 'from-indigo-500 to-purple-400',
       icon: <MapPin className="w-5 h-5" />,
-      stay: '烏鎮開元大酒店',
-      address: '桐鄉子夜路72號東柵景區門口',
+      stay: '烏鎮開元大酒店大堂',
+      address: '桐鄉, 子夜路 72 號東柵景區門口 (近烏鎮汽車站)',
       meals: '含早餐 / 午餐 / 晚餐',
       activities: [
-        { time: '上午', item: '南潯古鎮', desc: '探訪江南六大古鎮之一，看中西合璧建築' },
-        { time: '下午', item: '烏鎮西柵', desc: '江南水鄉代表，走進如畫般的景區' },
-        { time: '晚上', item: '夜遊烏鎮', desc: '欣賞迷人的水鄉夜間燈光，感受寧靜氛圍' },
+        { time: '全天', item: '遊玩 (搭乘旅遊巴士)', desc: '江南六大古鎮 南潯古鎮' },
+        { time: '下午', item: '烏鎮西柵', desc: '江南水鄉代表，烏鎮西柵景區' },
+        { time: '晚上', item: '夜遊烏鎮', desc: '感受寧靜氛圍與絕美夜色' },
       ]
     },
     {
@@ -80,13 +80,13 @@ const App = () => {
       color: 'from-emerald-500 to-cyan-400',
       icon: <MapPin className="w-5 h-5" />,
       stay: '杭州樸憬酒店',
-      address: '杭州拱墅區香積寺路201號13層',
+      address: '杭州, 拱墅區, 香積寺路 201 號 13 層',
       meals: '含早餐 / 午餐 / 晚餐',
       activities: [
-        { time: '上午', item: '前往杭州', desc: '搭乘旅遊巴士前往人間天堂杭州' },
-        { time: '下午', item: '船遊西湖', desc: '悠閒遊湖，觀賞著名的西湖十景' },
-        { time: '下午', item: '雷峰塔', desc: 'VIP扶梯登頂，俯瞰西湖全方位全景' },
-        { time: '晚上', item: '河坊街', desc: '逛逛杭州清河坊古街，尋找在地文創與小吃' },
+        { time: '上午', item: '烏鎮出發杭州', desc: '搭乘旅遊巴士前往' },
+        { time: '下午', item: '遊玩杭州名片西湖', desc: '船遊西湖觀十景' },
+        { time: '下午', item: '雷峰塔', desc: 'Vip 扶梯登雷峰塔' },
+        { time: '晚上', item: '逛河坊街', desc: '尋找在地文創與小吃' },
       ]
     },
     {
@@ -97,14 +97,14 @@ const App = () => {
       color: 'from-purple-600 to-pink-500',
       icon: <Camera className="w-5 h-5" />,
       stay: '上海景萊酒店 (靜安大寧店)',
-      address: '上海靜安區滬太路951號3幢',
+      address: '上海, 靜安區, 滬太路 951 號 3 幢',
       meals: '含早餐 / 午餐 / 晚餐',
       activities: [
-        { time: '上午', item: '前往上海', desc: '出發前往國際大都市上海' },
-        { time: '下午', item: '東方明珠塔', desc: '登第2個球觀光層，俯瞰震撼的上海全景' },
+        { time: '上午', item: '杭州出發上海', desc: '搭乘旅遊巴士前往' },
+        { time: '下午', item: '東方明珠塔', desc: '登第 2 個球，俯瞰整個上海外貌' },
         { time: '下午', item: '城隍廟豫園', desc: '體驗繁華的老上海民俗氣息' },
         { time: '傍晚', item: '南京路步行街', desc: '穿梭於繁華的商業街區' },
-        { time: '晚上', item: '外灘夜景', desc: '欣賞黃浦江兩岸瑰麗的萬國建築與摩天大樓' },
+        { time: '晚上', item: '外灘夜景', desc: '觀賞上海迷人夜色' },
       ]
     },
     {
@@ -117,13 +117,14 @@ const App = () => {
       stay: '溫馨家園',
       meals: '含早餐 / 午餐 / 晚餐 (飛機餐)',
       activities: [
-        { time: '上午', item: '自由活動', desc: '上海最後巡禮或自由購買伴手禮' },
-        { time: '17:00', item: '前往機場', desc: '安排旅遊巴士送往上海浦東機場' },
-        { time: '19:50', item: '搭乘 CI504', desc: '辦理登機手續，搭機返程' },
-        { time: '21:55', item: '抵達桃園', desc: '結束美好的六日旅遊行程' },
+        { time: '全天', item: '安排上海送機', desc: '搭乘旅遊巴士前往上海浦東機場' },
+        { time: '19:50', item: '搭乘 CI504', desc: '出發時間' },
+        { time: '21:55', item: '抵達桃園', desc: '抵達時間' },
+        { time: '結束', item: '回到溫馨家園', desc: '期待下一次相遇' },
       ]
     }
   ];
+
 
 
   const toggleDay = (index) => {
@@ -227,19 +228,22 @@ const App = () => {
                     <div className="h-px w-full bg-gray-100 mb-4"></div>
 
                     {/* Hotel & Food Badges */}
-                    <div className="flex flex-col gap-2 mb-4">
+                    <div className="space-y-3 mb-6">
                       <div className="flex flex-wrap gap-2">
-                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-50 text-orange-600 text-xs font-medium border border-orange-100">
-                          <Hotel className="w-3 h-3" /> 宿: {day.stay}
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-orange-50 text-orange-700 text-xs font-bold border border-orange-100 shadow-sm">
+                          <Hotel className="w-3.5 h-3.5" /> 住宿: {day.stay}
                         </span>
-                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-green-50 text-green-600 text-xs font-medium border border-green-100">
-                          <Utensils className="w-3 h-3" /> {day.meals}
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-green-50 text-green-700 text-xs font-bold border border-green-100 shadow-sm">
+                          <Utensils className="w-3.5 h-3.5" /> {day.meals}
                         </span>
                       </div>
                       {day.address && (
-                        <div className="text-[10px] text-gray-400 flex items-start gap-1 px-1">
-                          <MapPin className="w-3 h-3 shrink-0 mt-0.5" />
-                          <span>{day.address}</span>
+                        <div className="bg-blue-50/50 p-3 rounded-xl border border-blue-100 flex items-start gap-2.5">
+                          <MapPin className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+                          <div className="flex flex-col">
+                            <span className="text-[10px] uppercase tracking-wider text-blue-600 font-bold mb-0.5">酒店住址</span>
+                            <span className="text-xs text-gray-700 font-medium leading-relaxed">{day.address}</span>
+                          </div>
                         </div>
                       )}
                     </div>
