@@ -24,98 +24,107 @@ const App = () => {
   const itineraryData = [
     {
       day: 1,
-      date: '2月1日',
-      city: '上海 ➔ 蘇州',
-      title: '周莊夢裡水鄉',
+      date: '2026/2/1 (日)',
+      city: '台北 ➔ 蘇州',
+      title: '周莊古鎮巡禮',
       color: 'from-blue-500 to-teal-400',
       icon: <Plane className="w-5 h-5" />,
-      stay: '蘇州',
-      meals: '自理 / 推薦當地美食',
+      stay: '蘇州石湖智選酒店',
+      address: '蘇州吳中區長橋街道長蠡路67號美成坊39幢3-9層',
+      meals: '午餐: 桌菜 ¥600 / 晚餐: 自理',
       activities: [
-        { time: '中午', item: '上海接機 (預計中午到達)', desc: '專車接機，開啟旅程' },
-        { time: '下午', item: '前往蘇州', desc: '乘車前往「人間天堂」蘇州' },
+        { time: '08:45', item: '桃園機場出發', desc: '搭乘 CI501 航班前往上海' },
+        { time: '10:50', item: '抵達上海浦東', desc: '辦理入境手續後享用午餐' },
+        { time: '下午', item: '前往蘇州', desc: '搭乘旅遊巴士前往蘇州' },
         { time: '傍晚', item: '周莊古鎮', desc: '遊覽江南六大古鎮之一，體驗「小橋流水人家」' },
       ]
     },
     {
       day: 2,
-      date: '2月2日',
+      date: '2026/2/2 (一)',
       city: '蘇州',
-      title: '蘇州園林與姑蘇城',
+      title: '園林藝術與古街',
       color: 'from-teal-500 to-green-400',
       icon: <Camera className="w-5 h-5" />,
-      stay: '蘇州',
-      meals: '含早餐',
+      stay: '蘇州石湖智選酒店',
+      address: '蘇州吳中區長橋街道長蠡路67號美成坊39幢3-9層',
+      meals: '含早餐 / 午餐 / 晚餐',
       activities: [
-        { time: '上午', item: '拙政園', desc: '中國四大園林之一，一步一景' },
-        { time: '上午', item: '虎丘 & 寒山寺', desc: '吳中第一名勝與千年古剎' },
-        { time: '下午', item: '七里山塘街', desc: '姑蘇第一名街，體驗老蘇州生活' },
-        { time: '晚上', item: '品嚐蘇州美食', desc: '推薦：松鼠桂魚、響油鱔糊' },
+        { time: '上午', item: '拙政園', desc: '中國四大園林之一，感受精緻園林設計' },
+        { time: '上午', item: '虎丘', desc: '吳中第一名勝，探訪東方比薩斜塔' },
+        { time: '下午', item: '寒山寺', desc: '體會「姑蘇城外寒山寺，夜半鐘聲到客船」的意境' },
+        { time: '傍晚', item: '七里山塘街', desc: '逛逛千年古街，品嚐蘇州在地美食' },
       ]
     },
     {
       day: 3,
-      date: '2月3日',
+      date: '2026/2/3 (二)',
       city: '蘇州 ➔ 烏鎮',
-      title: '古鎮雙重奏',
+      title: '水鄉古鎮雙響',
       color: 'from-indigo-500 to-purple-400',
       icon: <MapPin className="w-5 h-5" />,
-      stay: '烏鎮',
-      meals: '含早餐',
+      stay: '烏鎮開元大酒店',
+      address: '桐鄉子夜路72號東柵景區門口',
+      meals: '含早餐 / 午餐 / 晚餐',
       activities: [
-        { time: '上午', item: '南潯古鎮', desc: '中西合璧的江南名鎮' },
-        { time: '下午', item: '烏鎮西柵景區', desc: '江南水鄉代表，似水年華拍攝地' },
-        { time: '晚上', item: '夜遊烏鎮', desc: '欣賞絕美的水鄉夜景，燈光倒影' },
+        { time: '上午', item: '南潯古鎮', desc: '探訪江南六大古鎮之一，看中西合璧建築' },
+        { time: '下午', item: '烏鎮西柵', desc: '江南水鄉代表，走進如畫般的景區' },
+        { time: '晚上', item: '夜遊烏鎮', desc: '欣賞迷人的水鄉夜間燈光，感受寧靜氛圍' },
       ]
     },
     {
       day: 4,
-      date: '2月4日',
+      date: '2026/2/4 (三)',
       city: '烏鎮 ➔ 杭州',
-      title: '西湖斷橋與雷峰塔',
+      title: '西湖美景與雷峰塔',
       color: 'from-emerald-500 to-cyan-400',
       icon: <MapPin className="w-5 h-5" />,
-      stay: '杭州',
-      meals: '含早餐',
+      stay: '杭州樸憬酒店',
+      address: '杭州拱墅區香積寺路201號13層',
+      meals: '含早餐 / 午餐 / 晚餐',
       activities: [
-        { time: '上午', item: '前往杭州', desc: '出發前往「人間天堂」杭州' },
-        { time: '下午', item: '船遊西湖', desc: '觀西湖十景，感受淡妝濃抹總相宜' },
-        { time: '下午', item: '登雷峰塔', desc: 'VIP扶梯登頂，俯瞰西湖全景' },
-        { time: '晚上', item: '河坊街', desc: '逛南宋皇城根下的老街' },
+        { time: '上午', item: '前往杭州', desc: '搭乘旅遊巴士前往人間天堂杭州' },
+        { time: '下午', item: '船遊西湖', desc: '悠閒遊湖，觀賞著名的西湖十景' },
+        { time: '下午', item: '雷峰塔', desc: 'VIP扶梯登頂，俯瞰西湖全方位全景' },
+        { time: '晚上', item: '河坊街', desc: '逛逛杭州清河坊古街，尋找在地文創與小吃' },
       ]
     },
     {
       day: 5,
-      date: '2月5日',
+      date: '2026/2/5 (四)',
       city: '杭州 ➔ 上海',
-      title: '魔都風雲與外灘夜景',
+      title: '魔都地標巡遊',
       color: 'from-purple-600 to-pink-500',
       icon: <Camera className="w-5 h-5" />,
-      stay: '上海',
-      meals: '含早餐',
+      stay: '上海景萊酒店 (靜安大寧店)',
+      address: '上海靜安區滬太路951號3幢',
+      meals: '含早餐 / 午餐 / 晚餐',
       activities: [
-        { time: '上午', item: '返回上海', desc: '結束杭州行程，返回上海' },
-        { time: '下午', item: '東方明珠塔', desc: '登第2個球，俯瞰萬國建築群與陸家嘴' },
-        { time: '下午', item: '城隍廟豫園', desc: '體驗老上海的繁華與民俗' },
-        { time: '傍晚', item: '南京路步行街', desc: '中華商業第一街' },
-        { time: '晚上', item: '外灘夜景', desc: '吹著江風，看兩岸燈火輝煌' },
+        { time: '上午', item: '前往上海', desc: '出發前往國際大都市上海' },
+        { time: '下午', item: '東方明珠塔', desc: '登第2個球觀光層，俯瞰震撼的上海全景' },
+        { time: '下午', item: '城隍廟豫園', desc: '體驗繁華的老上海民俗氣息' },
+        { time: '傍晚', item: '南京路步行街', desc: '穿梭於繁華的商業街區' },
+        { time: '晚上', item: '外灘夜景', desc: '欣賞黃浦江兩岸瑰麗的萬國建築與摩天大樓' },
       ]
     },
     {
       day: 6,
-      date: '2月6日',
-      city: '上海 ➔ 返程',
-      title: '溫馨返程',
+      date: '2026/2/6 (五)',
+      city: '上海 ➔ 台北',
+      title: '滿載而歸',
       color: 'from-gray-500 to-slate-400',
       icon: <Plane className="w-5 h-5" />,
       stay: '溫馨家園',
-      meals: '含早餐',
+      meals: '含早餐 / 午餐 / 晚餐 (飛機餐)',
       activities: [
-        { time: '全天', item: '送機服務', desc: '根據航班安排送機' },
-        { time: '結束', item: '返回溫馨家園', desc: '期待下一次的相遇' },
+        { time: '上午', item: '自由活動', desc: '上海最後巡禮或自由購買伴手禮' },
+        { time: '17:00', item: '前往機場', desc: '安排旅遊巴士送往上海浦東機場' },
+        { time: '19:50', item: '搭乘 CI504', desc: '辦理登機手續，搭機返程' },
+        { time: '21:55', item: '抵達桃園', desc: '結束美好的六日旅遊行程' },
       ]
     }
   ];
+
 
   const toggleDay = (index) => {
     setExpandedDay(expandedDay === index ? -1 : index);
@@ -135,9 +144,9 @@ const App = () => {
       <header className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-6 rounded-b-3xl shadow-lg sticky top-0 z-20">
         <div className="flex justify-between items-start">
           <div>
-            <h1 className="text-2xl font-bold tracking-wide">江浙滬·六日遊</h1>
+            <h1 className="text-2xl font-bold tracking-wide">蘇杭古鎮·六日遊</h1>
             <p className="text-blue-100 text-sm mt-1 flex items-center gap-1">
-              <Calendar className="w-3 h-3" /> 2月1日 - 2月6日
+              <Calendar className="w-3 h-3" /> 2026年2月1日 - 2月6日
             </p>
           </div>
           <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
@@ -218,13 +227,21 @@ const App = () => {
                     <div className="h-px w-full bg-gray-100 mb-4"></div>
 
                     {/* Hotel & Food Badges */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-50 text-orange-600 text-xs font-medium border border-orange-100">
-                        <Hotel className="w-3 h-3" /> 宿: {day.stay}
-                      </span>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-green-50 text-green-600 text-xs font-medium border border-green-100">
-                        <Utensils className="w-3 h-3" /> {day.meals}
-                      </span>
+                    <div className="flex flex-col gap-2 mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-50 text-orange-600 text-xs font-medium border border-orange-100">
+                          <Hotel className="w-3 h-3" /> 宿: {day.stay}
+                        </span>
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-green-50 text-green-600 text-xs font-medium border border-green-100">
+                          <Utensils className="w-3 h-3" /> {day.meals}
+                        </span>
+                      </div>
+                      {day.address && (
+                        <div className="text-[10px] text-gray-400 flex items-start gap-1 px-1">
+                          <MapPin className="w-3 h-3 shrink-0 mt-0.5" />
+                          <span>{day.address}</span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Timeline */}
