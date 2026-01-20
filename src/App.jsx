@@ -140,29 +140,28 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans pb-20 max-w-md mx-auto shadow-2xl overflow-hidden relative">
+    <div className="min-h-screen bg-gray-50 font-sans pb-20 max-w-2xl mx-auto shadow-2xl overflow-hidden relative">
       {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-6 rounded-b-3xl shadow-lg sticky top-0 z-20">
+      <header className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-8 rounded-b-[3rem] shadow-lg sticky top-0 z-20">
         <div className="flex justify-between items-start">
           <div>
-            <h1 className="text-2xl font-bold tracking-wide">蘇杭古鎮·六日遊</h1>
-            <p className="text-blue-100 text-sm mt-1 flex items-center gap-1">
-              <Calendar className="w-3 h-3" /> 2026年2月1日 - 2月6日
+            <h1 className="text-4xl font-bold tracking-wide">蘇杭古鎮·六日遊</h1>
+            <p className="text-blue-100 text-lg mt-2 flex items-center gap-2">
+              <Calendar className="w-5 h-5" /> 2026年2月1日 - 2月6日
             </p>
           </div>
-          <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
-            <span className="text-xs font-bold block text-center">6天</span>
-            <span className="text-xs block text-center">5晚</span>
+          <div className="bg-white/20 p-4 rounded-xl backdrop-blur-sm">
+            <span className="text-sm font-bold block text-center uppercase tracking-wider">6天5晚</span>
           </div>
         </div>
 
         {/* Progress Bar (Mockup) */}
-        <div className="mt-6">
-          <div className="flex justify-between text-xs text-blue-100 mb-1">
+        <div className="mt-8">
+          <div className="flex justify-between text-base text-blue-100 mb-2">
             <span>旅程進度</span>
             <span>{Object.keys(checkedItems).length} / {itineraryData.reduce((acc, curr) => acc + curr.activities.length, 0)} 項體驗</span>
           </div>
-          <div className="h-2 bg-blue-900/30 rounded-full overflow-hidden">
+          <div className="h-3 bg-blue-900/30 rounded-full overflow-hidden">
             <div
               className="h-full bg-white/90 rounded-full transition-all duration-500"
               style={{ width: `${(Object.keys(checkedItems).length / 20) * 100}%` }}
@@ -172,17 +171,17 @@ const App = () => {
       </header>
 
       {/* Tabs */}
-      <div className="flex justify-center my-4 px-4 sticky top-28 z-10">
-        <div className="bg-white p-1 rounded-full shadow-md flex w-full max-w-xs">
+      <div className="flex justify-center my-6 px-4 sticky top-48 z-10">
+        <div className="bg-white p-1.5 rounded-full shadow-md flex w-full max-w-md">
           <button
             onClick={() => setActiveTab('itinerary')}
-            className={`flex-1 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === 'itinerary' ? 'bg-indigo-600 text-white shadow-sm' : 'text-gray-500'}`}
+            className={`flex-1 py-3 rounded-full text-lg font-bold transition-all duration-300 ${activeTab === 'itinerary' ? 'bg-indigo-600 text-white shadow-sm' : 'text-gray-500'}`}
           >
             每日行程
           </button>
           <button
             onClick={() => setActiveTab('details')}
-            className={`flex-1 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === 'details' ? 'bg-indigo-600 text-white shadow-sm' : 'text-gray-500'}`}
+            className={`flex-1 py-3 rounded-full text-lg font-bold transition-all duration-300 ${activeTab === 'details' ? 'bg-indigo-600 text-white shadow-sm' : 'text-gray-500'}`}
           >
             貼心服務
           </button>
@@ -190,81 +189,81 @@ const App = () => {
       </div>
 
       {/* Content Area */}
-      <div className="px-4 space-y-4">
+      <div className="px-6 space-y-6">
 
         {/* Itinerary View */}
         {activeTab === 'itinerary' && (
-          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             {itineraryData.map((day, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 ${expandedDay === index ? 'ring-2 ring-indigo-100 shadow-md' : ''}`}
+                className={`bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 ${expandedDay === index ? 'ring-4 ring-indigo-100 shadow-xl' : ''}`}
               >
                 {/* Day Header */}
                 <div
                   onClick={() => toggleDay(index)}
-                  className="p-4 flex items-center justify-between cursor-pointer active:bg-gray-50"
+                  className="p-6 flex items-center justify-between cursor-pointer active:bg-gray-50"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${day.color} flex flex-col items-center justify-center text-white shadow-sm`}>
-                      <span className="text-xs font-medium opacity-80">Day</span>
-                      <span className="text-lg font-bold leading-none">{day.day}</span>
+                  <div className="flex items-center gap-6">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${day.color} flex flex-col items-center justify-center text-white shadow-sm`}>
+                      <span className="text-xs font-bold opacity-80 uppercase">Day</span>
+                      <span className="text-2xl font-bold leading-none">{day.day}</span>
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-800 text-lg">{day.city}</h3>
-                      <p className="text-gray-500 text-xs mt-0.5 flex items-center gap-1">
-                        {day.icon} {day.title}
+                      <h3 className="font-bold text-gray-800 text-2xl">{day.city}</h3>
+                      <p className="text-gray-500 text-sm mt-1 flex items-center gap-2">
+                        {day.title}
                       </p>
                     </div>
                   </div>
                   <div className="text-gray-400">
-                    {expandedDay === index ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                    {expandedDay === index ? <ChevronUp className="w-8 h-8" /> : <ChevronDown className="w-8 h-8" />}
                   </div>
                 </div>
 
                 {/* Expanded Details */}
                 {expandedDay === index && (
-                  <div className="px-4 pb-4 pt-0 bg-gray-50/50">
-                    <div className="h-px w-full bg-gray-100 mb-4"></div>
+                  <div className="px-6 pb-6 pt-0 bg-gray-50/50">
+                    <div className="h-px w-full bg-gray-100 mb-6"></div>
 
                     {/* Hotel & Food Badges */}
-                    <div className="space-y-3 mb-6">
-                      <div className="flex flex-wrap gap-2">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-orange-50 text-orange-700 text-xs font-bold border border-orange-100 shadow-sm">
-                          <Hotel className="w-3.5 h-3.5" /> 住宿: {day.stay}
+                    <div className="space-y-4 mb-8">
+                      <div className="flex flex-wrap gap-3">
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-orange-50 text-orange-700 text-sm font-bold border border-orange-100 shadow-sm">
+                          <Hotel className="w-5 h-5" /> 住宿: {day.stay}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-green-50 text-green-700 text-xs font-bold border border-green-100 shadow-sm">
-                          <Utensils className="w-3.5 h-3.5" /> {day.meals}
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-green-50 text-green-700 text-sm font-bold border border-green-100 shadow-sm">
+                          <Utensils className="w-5 h-5" /> {day.meals}
                         </span>
                       </div>
                       {day.address && (
-                        <div className="bg-blue-50/50 p-3 rounded-xl border border-blue-100 flex items-start gap-2.5">
-                          <MapPin className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+                        <div className="bg-blue-50/50 p-4 rounded-2xl border border-blue-100 flex items-start gap-3">
+                          <MapPin className="w-6 h-6 text-blue-500 shrink-0 mt-0.5" />
                           <div className="flex flex-col">
-                            <span className="text-[10px] uppercase tracking-wider text-blue-600 font-bold mb-0.5">酒店住址</span>
-                            <span className="text-xs text-gray-700 font-medium leading-relaxed">{day.address}</span>
+                            <span className="text-xs uppercase tracking-wider text-blue-600 font-bold mb-1">酒店住址</span>
+                            <span className="text-base text-gray-700 font-medium leading-relaxed">{day.address}</span>
                           </div>
                         </div>
                       )}
                     </div>
 
                     {/* Timeline */}
-                    <div className="space-y-4 pl-2 relative border-l-2 border-indigo-100 ml-1.5 my-2">
+                    <div className="space-y-6 pl-4 relative border-l-4 border-indigo-100 ml-2 my-4">
                       {day.activities.map((act, actIndex) => {
                         const isChecked = checkedItems[`${index}-${actIndex}`];
                         return (
-                          <div key={actIndex} className="relative pl-6 group" onClick={() => toggleCheck(index, actIndex)}>
+                          <div key={actIndex} className="relative pl-8 group" onClick={() => toggleCheck(index, actIndex)}>
                             {/* Dot */}
-                            <div className={`absolute -left-[9px] top-0.5 w-4 h-4 rounded-full border-2 transition-colors duration-300 flex items-center justify-center
+                            <div className={`absolute -left-[14px] top-1 w-6 h-6 rounded-full border-4 transition-colors duration-300 flex items-center justify-center
                               ${isChecked ? 'bg-indigo-500 border-indigo-500' : 'bg-white border-gray-300'}`}>
-                              {isChecked && <div className="w-1.5 h-1.5 bg-white rounded-full"></div>}
+                              {isChecked && <div className="w-2.5 h-2.5 bg-white rounded-full"></div>}
                             </div>
 
                             {/* Content */}
                             <div className={`transition-all duration-300 cursor-pointer ${isChecked ? 'opacity-50 grayscale' : ''}`}>
-                              <span className="text-xs font-bold text-indigo-600 mb-0.5 block">{act.time}</span>
-                              <h4 className={`text-sm font-bold text-gray-800 ${isChecked ? 'line-through' : ''}`}>{act.item}</h4>
-                              <p className="text-xs text-gray-500 mt-1 leading-relaxed">{act.desc}</p>
+                              <span className="text-sm font-bold text-indigo-600 mb-1 block uppercase tracking-wide">{act.time}</span>
+                              <h4 className={`text-xl font-bold text-gray-800 ${isChecked ? 'line-through' : ''}`}>{act.item}</h4>
+                              <p className="text-base text-gray-500 mt-1.5 leading-relaxed">{act.desc}</p>
                             </div>
                           </div>
                         );
@@ -275,7 +274,7 @@ const App = () => {
               </div>
             ))}
 
-            <div className="text-center py-6 text-gray-400 text-xs">
+            <div className="text-center py-10 text-gray-400 text-base font-medium">
               我們期待為您創造美好回憶
             </div>
           </div>
@@ -283,53 +282,53 @@ const App = () => {
 
         {/* Details View */}
         {activeTab === 'details' && (
-          <div className="space-y-4 animate-in fade-in slide-in-from-right-8 duration-500">
+          <div className="space-y-6 animate-in fade-in slide-in-from-right-8 duration-500">
             {/* Service Card */}
-            <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-              <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-4">
-                <span className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                  <Droplets className="w-4 h-4" />
+            <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100">
+              <h3 className="font-bold text-gray-800 text-2xl flex items-center gap-3 mb-6">
+                <span className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                  <Droplets className="w-6 h-6" />
                 </span>
                 貼心服務
               </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3 bg-blue-50/50 p-3 rounded-xl">
-                  <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+              <ul className="space-y-4">
+                <li className="flex items-start gap-4 bg-blue-50/50 p-5 rounded-2xl">
+                  <CheckCircle2 className="w-7 h-7 text-blue-500 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-sm font-bold text-gray-700 block">每日礦泉水</span>
-                    <span className="text-xs text-gray-500">車上每日備有充足礦泉水，隨取隨用。</span>
+                    <span className="text-lg font-bold text-gray-700 block mb-1">每日礦泉水</span>
+                    <span className="text-base text-gray-500 leading-relaxed">車上每日備有充足礦泉水，隨取隨用。</span>
                   </div>
                 </li>
-                <li className="flex items-start gap-3 bg-blue-50/50 p-3 rounded-xl">
-                  <Utensils className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                <li className="flex items-start gap-4 bg-blue-50/50 p-5 rounded-2xl">
+                  <Utensils className="w-7 h-7 text-blue-500 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-sm font-bold text-gray-700 block">美食推薦</span>
-                    <span className="text-xs text-gray-500">行程用餐可靈活安排，導遊可推薦當地特色餐廳（如松鶴樓、外婆家等）。</span>
+                    <span className="text-lg font-bold text-gray-700 block mb-1">美食推薦</span>
+                    <span className="text-base text-gray-500 leading-relaxed">行程用餐可靈活安排，導遊可推薦當地特色餐廳（如松鶴樓、外婆家等）。</span>
                   </div>
                 </li>
               </ul>
             </div>
 
             {/* Weather & Cloths (Mock) */}
-            <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-5 rounded-2xl shadow-md text-white">
-              <h3 className="font-bold mb-3 flex items-center gap-2">
-                <Info className="w-5 h-5" /> 2月出行小貼士
+            <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-8 rounded-[2rem] shadow-md text-white">
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                <Info className="w-7 h-7" /> 2月出行小貼士
               </h3>
-              <div className="space-y-3 text-sm opacity-90">
-                <p>❄️ <span className="font-bold">天氣：</span> 江浙滬2月初氣溫較低（0-10℃），濕冷為主。</p>
-                <p>🧥 <span className="font-bold">穿衣：</span> 建議穿著羽絨服、保開發內衣，攜帶雨具（江南煙雨多）。</p>
-                <p>👟 <span className="font-bold">鞋履：</span> 園林和古鎮步行較多，請穿舒適的平底鞋。</p>
+              <div className="space-y-4 text-lg">
+                <p className="flex items-start gap-2"><span>❄️</span> <span><span className="font-bold">天氣：</span> 江浙滬2月初氣溫較低（0-10℃），濕冷為主。</span></p>
+                <p className="flex items-start gap-2"><span>🧥</span> <span><span className="font-bold">穿衣：</span> 建議穿著羽絨服、保暖內衣，攜帶雨具（江南煙雨多）。</span></p>
+                <p className="flex items-start gap-2"><span>👟</span> <span><span className="font-bold">鞋履：</span> 園林和古鎮步行較多，請穿舒適的平底鞋。</span></p>
               </div>
             </div>
 
             {/* Emergency Contact */}
-            <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-              <h3 className="font-bold text-gray-800 mb-4">緊急聯絡</h3>
-              <div className="flex gap-3">
-                <button className="flex-1 bg-green-50 text-green-700 py-3 rounded-xl font-medium text-sm border border-green-100 flex items-center justify-center gap-2 hover:bg-green-100 active:scale-95 transition-transform">
+            <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100">
+              <h3 className="font-bold text-gray-800 text-2xl mb-6">緊急聯絡</h3>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="flex-1 bg-green-50 text-green-700 py-5 rounded-2xl font-bold text-lg border border-green-100 flex items-center justify-center gap-3 hover:bg-green-100 active:scale-95 transition-all">
                   聯繫導遊
                 </button>
-                <button className="flex-1 bg-gray-50 text-gray-700 py-3 rounded-xl font-medium text-sm border border-gray-100 flex items-center justify-center gap-2 hover:bg-gray-100 active:scale-95 transition-transform">
+                <button className="flex-1 bg-gray-50 text-gray-700 py-5 rounded-2xl font-bold text-lg border border-gray-100 flex items-center justify-center gap-3 hover:bg-gray-100 active:scale-95 transition-all">
                   客服熱線
                 </button>
               </div>
@@ -339,16 +338,17 @@ const App = () => {
       </div>
 
       {/* Floating Action Button for Map (Visual Only) */}
-      <div className="fixed bottom-6 right-6 z-30">
+      <div className="fixed bottom-10 right-10 z-30">
         <button
           onClick={() => setActiveTab('itinerary')}
-          className="w-14 h-14 bg-indigo-600 rounded-full shadow-xl shadow-indigo-600/30 flex items-center justify-center text-white active:scale-90 transition-transform"
+          className="w-20 h-20 bg-indigo-600 rounded-full shadow-2xl shadow-indigo-600/40 flex items-center justify-center text-white active:scale-90 transition-transform"
         >
-          <Calendar className="w-6 h-6" />
+          <Calendar className="w-10 h-10" />
         </button>
       </div>
 
     </div>
+
   );
 };
 
