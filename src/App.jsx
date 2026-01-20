@@ -31,7 +31,7 @@ const App = () => {
       icon: <Plane className="w-5 h-5" />,
       stay: '蘇州石湖智選酒店',
       address: '蘇州, 吳中區, 長橋街道 長蠡路 67 號美成坊 39 幢 3-9 層',
-      meals: '午餐 (桌菜 ¥600) / 晚餐: 自理',
+      meals: '午餐 (桌菜 ¥600) / 早、晚餐自理',
       activities: [
         { time: '08:45', item: '桃園機場出發', desc: '搭乘 CI501 航班' },
         { time: '10:50', item: '抵達上海浦東', desc: '抵達後 ~ 先吃飯再往蘇州前去 ~' },
@@ -48,7 +48,7 @@ const App = () => {
       icon: <Camera className="w-5 h-5" />,
       stay: '蘇州石湖智選酒店',
       address: '蘇州, 吳中區, 長橋街道 長蠡路 67 號美成坊 39 幢 3-9 層',
-      meals: '含早餐 / 午餐 / 晚餐',
+      meals: '含早餐 / 午、晚餐自理',
       activities: [
         { time: '上午', item: '拙政園', desc: '中國四大園林之一' },
         { time: '上午', item: '虎丘', desc: '吳中第一名勝' },
@@ -65,7 +65,7 @@ const App = () => {
       icon: <MapPin className="w-5 h-5" />,
       stay: '烏鎮開元大酒店大堂',
       address: '桐鄉, 子夜路 72 號東柵景區門口 (近烏鎮汽車站)',
-      meals: '含早餐 / 午餐 / 晚餐',
+      meals: '含早餐 / 午、晚餐自理',
       activities: [
         { time: '全天', item: '江南六大古鎮 南潯古鎮', desc: '遊玩 (搭乘旅遊巴士)' },
         { time: '下午', item: '烏鎮西柵', desc: '江南水鄉代表，烏鎮西柵景區' },
@@ -81,7 +81,7 @@ const App = () => {
       icon: <MapPin className="w-5 h-5" />,
       stay: '杭州樸憬酒店',
       address: '杭州, 拱墅區, 香積寺路 201 號 13 層',
-      meals: '含早餐 / 午餐 / 晚餐',
+      meals: '含早餐 / 午、晚餐自理',
       activities: [
         { time: '上午', item: '烏鎮出發杭州', desc: '搭乘旅遊巴士前往' },
         { time: '下午', item: '遊玩杭州名片西湖', desc: '船遊西湖觀十景' },
@@ -98,7 +98,7 @@ const App = () => {
       icon: <Camera className="w-5 h-5" />,
       stay: '上海景萊酒店 (靜安大寧店)',
       address: '上海, 靜安區, 滬太路 951 號 3 幢',
-      meals: '含早餐 / 午餐 / 晚餐',
+      meals: '含早餐 / 午、晚餐自理',
       activities: [
         { time: '上午', item: '杭州出發上海', desc: '搭乘旅遊巴士前往' },
         { time: '下午', item: '東方明珠塔', desc: '登第 2 個球，俯瞰整個上海外貌' },
@@ -115,7 +115,7 @@ const App = () => {
       color: 'from-gray-500 to-slate-400',
       icon: <Plane className="w-5 h-5" />,
       stay: '溫馨家園',
-      meals: '含早餐 / 午餐 / 晚餐 (飛機餐)',
+      meals: '含早餐、晚餐 (飛機餐) / 午餐自理',
       activities: [
         { time: '全天', item: '安排上海送機', desc: '搭乘旅遊巴士前往上海浦東機場' },
         { time: '19:50', item: '搭乘 CI504', desc: '出發時間' },
