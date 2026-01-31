@@ -9,6 +9,8 @@ import {
   Info,
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   Utensils,
   Droplets,
   ArrowRight,
@@ -19,6 +21,23 @@ const App = () => {
   const [activeTab, setActiveTab] = useState('itinerary');
   const [expandedDay, setExpandedDay] = useState(0); // Default open first day
   const [checkedItems, setCheckedItems] = useState({});
+  const [imageIndexes, setImageIndexes] = useState({}); // 追蹤每個景點的當前圖片索引
+
+  // 切換到下一張圖片
+  const nextImage = (key, totalImages) => {
+    setImageIndexes(prev => ({
+      ...prev,
+      [key]: ((prev[key] || 0) + 1) % totalImages
+    }));
+  };
+
+  // 切換到上一張圖片
+  const prevImage = (key, totalImages) => {
+    setImageIndexes(prev => ({
+      ...prev,
+      [key]: ((prev[key] || 0) - 1 + totalImages) % totalImages
+    }));
+  };
 
   // 行程數據配置
   const itineraryData = [
@@ -36,7 +55,18 @@ const App = () => {
         { time: '08:45', item: '桃園機場出發', desc: '搭乘 CI501 航班' },
         { time: '10:50', item: '抵達上海浦東', desc: '抵達後 ~ 先吃飯再往蘇州前去 ~' },
         { time: '下午', item: '前往蘇州', desc: '搭乘旅遊巴士，前往蘇州遊玩江南六大古鎮之一' },
-        { time: '傍晚', item: '周莊古鎮', desc: '體驗「小橋流水人家」之美' },
+        {
+          time: '傍晚',
+          item: '周莊古鎮',
+          desc: '體驗「小橋流水人家」之美',
+          images: [
+            './images/zhouzhuang/01.png',
+            './images/zhouzhuang/02.png',
+            './images/zhouzhuang/03.png',
+            './images/zhouzhuang/04.png'
+          ],
+          intro: '周莊是江南六大古鎮之首，始建於北宋，已有900餘年歷史。古鎮四面環水，因河成鎮，依水成街，以街為市。井字形河道上保存著14座古石橋，構成一幅「小橋、流水、人家」的江南水墨畫。代表景點有雙橋、沈廳、張廳等。'
+        },
       ]
     },
     {
@@ -50,10 +80,55 @@ const App = () => {
       address: '蘇州, 吳中區, 長橋街道 長蠡路 67 號美成坊 39 幢 3-9 層',
       meals: '含早餐 / 午、晚餐自理',
       activities: [
-        { time: '上午', item: '拙政園', desc: '中國四大園林之一' },
-        { time: '上午', item: '虎丘', desc: '吳中第一名勝' },
-        { time: '下午', item: '寒山寺', desc: '體會千年古剎意境' },
-        { time: '傍晚', item: '逛七里山塘街', desc: '品嚐蘇州美食' },
+        {
+          time: '上午',
+          item: '拙政園',
+          desc: '中國四大園林之一',
+          images: [
+            './images/zhuozhengyuan/01.jpg',
+            './images/zhuozhengyuan/02.jpg',
+            './images/zhuozhengyuan/03.jpg',
+            './images/zhuozhengyuan/04.jpg'
+          ],
+          intro: '拙政園是蘇州最大的古典園林，始建於明代正德年間，為中國四大名園之一，也是世界文化遺產。園內以水為中心，山水縈繞、花木繁茂，亭台樓閣皆臨水而建，充分體現了「江南園林甲天下，蘇州園林甲江南」的意境。'
+        },
+        {
+          time: '上午',
+          item: '虎丘',
+          desc: '吳中第一名勝',
+          images: [
+            './images/huqiu/01.png',
+            './images/huqiu/02.png',
+            './images/huqiu/03.png',
+            './images/huqiu/04.png'
+          ],
+          intro: '虎丘有「吳中第一名勝」之譽，距今已有2500多年歷史。相傳春秋時期吳王闔閭葬於此，葬後三日有白虎蹲踞其上，故名虎丘。最著名的是傾斜的雲巖寺塔，被稱為「中國的比薩斜塔」，已有千年歷史。'
+        },
+        {
+          time: '下午',
+          item: '寒山寺',
+          desc: '體會千年古剎意境',
+          images: [
+            './images/hanshansi/01.png',
+            './images/hanshansi/02.png',
+            './images/hanshansi/03.png',
+            './images/hanshansi/04.png'
+          ],
+          intro: '寒山寺始建於南朝梁代，因唐代高僧寒山子曾來此修行而得名。唐代詩人張繼的《楓橋夜泊》使其聞名天下：「姑蘇城外寒山寺，夜半鐘聲到客船」。每年除夕，寺內會敲響108響鐘聲，吸引無數遊客前來聆聽。'
+        },
+        {
+          time: '傍晚',
+          item: '逛七里山塘街',
+          desc: '品嚐蘇州美食',
+          images: [
+            './images/shantangjie/01.png',
+            './images/shantangjie/02.png',
+            './images/shantangjie/03.png',
+            './images/shantangjie/04.png',
+            './images/shantangjie/05.png'
+          ],
+          intro: '山塘街被譽為「姑蘇第一名街」，始建於唐代，由詩人白居易主持開鑿。全長約七里，故稱「七里山塘」。沿街有眾多歷史建築、傳統商舖和特色小吃，夜晚時分，兩岸燈火闌珊，古橋流水，別有一番江南風情。'
+        },
       ]
     },
     {
@@ -67,9 +142,43 @@ const App = () => {
       address: '桐鄉, 子夜路 72 號東柵景區門口 (近烏鎮汽車站)',
       meals: '含早餐 / 午、晚餐自理',
       activities: [
-        { time: '全天', item: '江南六大古鎮 南潯古鎮', desc: '遊玩 (搭乘旅遊巴士)' },
-        { time: '下午', item: '烏鎮西柵', desc: '江南水鄉代表，烏鎮西柵景區' },
-        { time: '晚上', item: '夜遊烏鎮', desc: '感受寧靜氛圍與絕美夜色' },
+        {
+          time: '全天',
+          item: '江南六大古鎮 南潯古鎮',
+          desc: '遊玩 (搭乘旅遊巴士)',
+          images: [
+            './images/nanxun/01.png',
+            './images/nanxun/02.png',
+            './images/nanxun/03.png',
+            './images/nanxun/04.png',
+            './images/nanxun/05.png'
+          ],
+          intro: '南潯古鎮是江南六大古鎮之一，以深厚的文化底蘊和獨特的中西合璧建築聞名。明清時期因蠶絲業繁榮，富商巨賈雲集，留下了小蓮莊、嘉業堂藏書樓等眾多精美建築。古鎮水網密布，小橋流水，是攝影愛好者的天堂。'
+        },
+        {
+          time: '下午',
+          item: '烏鎮西柵',
+          desc: '江南水鄉代表，烏鎮西柵景區',
+          images: [
+            './images/wuzhen/01.png',
+            './images/wuzhen/02.png',
+            './images/wuzhen/03.png',
+            './images/wuzhen/04.png'
+          ],
+          intro: '烏鎮西柵是國家5A級旅遊景區，擁有1300年歷史。這裡完整保留了晚清和民國時期的建築風貌，石板路、烏篷船、木雕花窗構成典型的江南水鄉畫卷。西柵夜景尤為迷人，燈火倒映水中，宛如人間仙境。'
+        },
+        {
+          time: '晚上',
+          item: '夜遊烏鎮',
+          desc: '感受寧靜氛圍與絕美夜色',
+          images: [
+            './images/wuzhen-night/01.png',
+            './images/wuzhen-night/02.png',
+            './images/wuzhen-night/03.png',
+            './images/wuzhen-night/04.png'
+          ],
+          intro: '烏鎮夜景被譽為「中國最美夜景」之一。入夜後，古鎮燈火通明，木構建築在暖黃燈光下顯得格外溫馨。沿著石板路漫步，或乘坐烏篷船穿梭於水巷之間，感受這座千年古鎮的寧靜與浪漫。'
+        },
       ]
     },
     {
@@ -84,9 +193,44 @@ const App = () => {
       meals: '含早餐 / 午、晚餐自理',
       activities: [
         { time: '上午', item: '烏鎮出發杭州', desc: '搭乘旅遊巴士前往' },
-        { time: '下午', item: '遊玩杭州名片西湖', desc: '船遊西湖觀十景' },
-        { time: '下午', item: '雷峰塔', desc: 'Vip 扶梯登雷峰塔' },
-        { time: '晚上', item: '逛河坊街', desc: '尋找在地文創與小吃' },
+        {
+          time: '下午',
+          item: '遊玩杭州名片西湖',
+          desc: '船遊西湖觀十景',
+          images: [
+            './images/xihu/01.png',
+            './images/xihu/02.png',
+            './images/xihu/03.png',
+            './images/xihu/04.png'
+          ],
+          intro: '西湖是中國十大風景名勝之一，2011年列入世界文化遺產。自古以來，「上有天堂，下有蘇杭」道盡杭州之美。西湖十景包括蘇堤春曉、斷橋殘雪、平湖秋月等，四季皆有不同風情。泛舟湖上，可盡覽湖光山色，感受千年詩畫意境。'
+        },
+        {
+          time: '下午',
+          item: '雷峰塔',
+          desc: 'Vip 扶梯登雷峰塔',
+          images: [
+            './images/leifengta/01.png',
+            './images/leifengta/02.png',
+            './images/leifengta/03.png',
+            './images/leifengta/04.png',
+            './images/leifengta/05.png'
+          ],
+          intro: '雷峰塔始建於北宋，因《白蛇傳》的傳說而家喻戶曉。現塔為2002年重建，塔內設有電梯和扶梯，可登至塔頂俯瞰整個西湖美景。夕陽西下時，「雷峰夕照」為西湖十景之一，金色餘暉灑落塔身，美不勝收。'
+        },
+        {
+          time: '晚上',
+          item: '逛河坊街',
+          desc: '尋找在地文創與小吃',
+          images: [
+            './images/hefangjie/01.png',
+            './images/hefangjie/02.png',
+            './images/hefangjie/03.png',
+            './images/hefangjie/04.png',
+            './images/hefangjie/05.png'
+          ],
+          intro: '河坊街是杭州最著名的歷史街區，代表著杭州的歷史文化和商業文化。街道保留了清末民初的建築風格，匯集了眾多老字號商舖、傳統手工藝店和各式杭州小吃。漫步其間，可品嚐蔥包檜、定勝糕等地道美食。'
+        },
       ]
     },
     {
@@ -101,10 +245,54 @@ const App = () => {
       meals: '含早餐 / 午、晚餐自理',
       activities: [
         { time: '上午', item: '杭州出發上海', desc: '搭乘旅遊巴士前往' },
-        { time: '下午', item: '東方明珠塔', desc: '登第 2 個球，俯瞰整個上海外貌' },
-        { time: '下午', item: '城隍廟豫園', desc: '體驗繁華的老上海民俗氣息' },
-        { time: '傍晚', item: '南京路步行街', desc: '穿梭於繁華的商業街區' },
-        { time: '晚上', item: '外灘夜景', desc: '觀賞上海迷人夜色' },
+        {
+          time: '下午',
+          item: '東方明珠塔',
+          desc: '登第 2 個球，俯瞰整個上海外貌',
+          images: [
+            './images/dongfangmingzhu/01.png',
+            './images/dongfangmingzhu/02.png'
+          ],
+          intro: '東方明珠廣播電視塔是上海的標誌性建築，高468米，設計靈感來自唐代詩人白居易「大珠小珠落玉盤」的詩句。塔內設有觀光層、旋轉餐廳和歷史博物館。登上觀光球可360度俯瞰上海灘、黃浦江和浦東新區的壯麗景色。'
+        },
+        {
+          time: '下午',
+          item: '城隍廟豫園',
+          desc: '體驗繁華的老上海民俗氣息',
+          images: [
+            './images/yuyuan/01.png',
+            './images/yuyuan/02.png',
+            './images/yuyuan/03.png',
+            './images/yuyuan/04.png',
+            './images/yuyuan/05.png'
+          ],
+          intro: '豫園始建於明代嘉靖年間，是江南古典園林的典範。園內有三穗堂、大假山、點春堂等景點，融合了明清園林藝術之精華。周邊的城隍廟商圈匯聚了各式傳統小吃、老字號商舖和民俗工藝品，是體驗老上海風情的最佳去處。'
+        },
+        {
+          time: '傍晚',
+          item: '南京路步行街',
+          desc: '穿梭於繁華的商業街區',
+          images: [
+            './images/nanjinglu/01.png',
+            './images/nanjinglu/02.png',
+            './images/nanjinglu/03.png',
+            './images/nanjinglu/04.png',
+            './images/nanjinglu/05.png'
+          ],
+          intro: '南京路是中國第一條商業步行街，被譽為「中華商業第一街」，全長約5.5公里。這裡匯聚了上百家老字號商店和現代購物中心，霓虹燈閃爍，人潮如織，是體驗上海繁華都市氛圍的絕佳地點。'
+        },
+        {
+          time: '晚上',
+          item: '外灘夜景',
+          desc: '觀賞上海迷人夜色',
+          images: [
+            './images/waitan/01.png',
+            './images/waitan/02.png',
+            './images/waitan/03.png',
+            './images/waitan/04.png'
+          ],
+          intro: '外灘是上海最具代表性的景點，西側矗立著52幢風格迥異的萬國建築群，東側隔江相望的是璀璨的陸家嘴金融中心。夜幕降臨，兩岸燈火輝煌，黃浦江上遊船穿梭，構成一幅現代都市與歷史建築交相輝映的絕美畫卷。'
+        },
       ]
     },
     {
@@ -252,18 +440,121 @@ const App = () => {
                       {day.activities.map((act, actIndex) => {
                         const isChecked = checkedItems[`${index}-${actIndex}`];
                         return (
-                          <div key={actIndex} className="relative pl-8 group" onClick={() => toggleCheck(index, actIndex)}>
+                          <div key={actIndex} className="relative pl-8 group">
                             {/* Dot */}
-                            <div className={`absolute -left-[14px] top-1 w-6 h-6 rounded-full border-4 transition-colors duration-300 flex items-center justify-center
-                              ${isChecked ? 'bg-indigo-500 border-indigo-500' : 'bg-white border-gray-300'}`}>
+                            <div
+                              className={`absolute -left-[14px] top-1 w-6 h-6 rounded-full border-4 transition-colors duration-300 flex items-center justify-center cursor-pointer
+                              ${isChecked ? 'bg-indigo-500 border-indigo-500' : 'bg-white border-gray-300'}`}
+                              onClick={() => toggleCheck(index, actIndex)}
+                            >
                               {isChecked && <div className="w-2.5 h-2.5 bg-white rounded-full"></div>}
                             </div>
 
                             {/* Content */}
-                            <div className={`transition-all duration-300 cursor-pointer ${isChecked ? 'opacity-50 grayscale' : ''}`}>
-                              <span className="text-sm font-bold text-indigo-600 mb-1 block uppercase tracking-wide">{act.time}</span>
-                              <h4 className={`text-xl font-bold text-gray-800 ${isChecked ? 'line-through' : ''}`}>{act.item}</h4>
-                              <p className="text-base text-gray-500 mt-1.5 leading-relaxed">{act.desc}</p>
+                            <div className={`transition-all duration-300 ${isChecked ? 'opacity-50 grayscale' : ''}`}>
+                              <div className="cursor-pointer" onClick={() => toggleCheck(index, actIndex)}>
+                                <span className="text-sm font-bold text-indigo-600 mb-1 block uppercase tracking-wide">{act.time}</span>
+                                <h4 className={`text-xl font-bold text-gray-800 ${isChecked ? 'line-through' : ''}`}>{act.item}</h4>
+                                <p className="text-base text-gray-500 mt-1.5 leading-relaxed">{act.desc}</p>
+                              </div>
+
+                              {/* 景點圖片與介紹 */}
+                              {act.image && (
+                                <div className="mt-4 bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
+                                  <div className="relative h-48 overflow-hidden">
+                                    <img
+                                      src={act.image}
+                                      alt={act.item}
+                                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                      loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                                    <div className="absolute bottom-3 left-4 right-4">
+                                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 text-gray-800 text-sm font-bold shadow-sm">
+                                        <Camera className="w-4 h-4" />
+                                        {act.item}
+                                      </span>
+                                    </div>
+                                  </div>
+                                  {act.intro && (
+                                    <div className="p-4">
+                                      <p className="text-sm text-gray-600 leading-relaxed">
+                                        {act.intro}
+                                      </p>
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+
+                              {/* 多圖輪播 */}
+                              {act.images && act.images.length > 0 && (
+                                <div className="mt-4 bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
+                                  <div className="relative h-56 overflow-hidden">
+                                    {/* 圖片 */}
+                                    <img
+                                      src={act.images[imageIndexes[`${index}-${actIndex}`] || 0]}
+                                      alt={`${act.item} - ${(imageIndexes[`${index}-${actIndex}`] || 0) + 1}`}
+                                      className="w-full h-full object-cover transition-all duration-500"
+                                      loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+
+                                    {/* 左右切換按鈕 */}
+                                    <button
+                                      onClick={(e) => { e.stopPropagation(); prevImage(`${index}-${actIndex}`, act.images.length); }}
+                                      className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
+                                    >
+                                      <ChevronLeft className="w-6 h-6 text-gray-700" />
+                                    </button>
+                                    <button
+                                      onClick={(e) => { e.stopPropagation(); nextImage(`${index}-${actIndex}`, act.images.length); }}
+                                      className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
+                                    >
+                                      <ChevronRight className="w-6 h-6 text-gray-700" />
+                                    </button>
+
+                                    {/* 圓點指示器 */}
+                                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                                      {act.images.map((_, imgIdx) => (
+                                        <button
+                                          key={imgIdx}
+                                          onClick={(e) => {
+                                            e.stopPropagation();
+                                            setImageIndexes(prev => ({ ...prev, [`${index}-${actIndex}`]: imgIdx }));
+                                          }}
+                                          className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${(imageIndexes[`${index}-${actIndex}`] || 0) === imgIdx
+                                            ? 'bg-white scale-125'
+                                            : 'bg-white/50 hover:bg-white/80'
+                                            }`}
+                                        />
+                                      ))}
+                                    </div>
+
+                                    {/* 圖片計數 */}
+                                    <div className="absolute top-3 right-3">
+                                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/50 text-white text-xs font-bold">
+                                        <Camera className="w-3.5 h-3.5" />
+                                        {(imageIndexes[`${index}-${actIndex}`] || 0) + 1} / {act.images.length}
+                                      </span>
+                                    </div>
+
+                                    {/* 景點名稱標籤 */}
+                                    <div className="absolute bottom-12 left-4 right-4">
+                                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 text-gray-800 text-sm font-bold shadow-sm">
+                                        <Camera className="w-4 h-4" />
+                                        {act.item}
+                                      </span>
+                                    </div>
+                                  </div>
+                                  {act.intro && (
+                                    <div className="p-4">
+                                      <p className="text-sm text-gray-600 leading-relaxed">
+                                        {act.intro}
+                                      </p>
+                                    </div>
+                                  )}
+                                </div>
+                              )}
                             </div>
                           </div>
                         );
